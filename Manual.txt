@@ -1,0 +1,9 @@
+composer create-project --prefer-dist laravel/laravel api-erp "5.8.*"
+
+php artisan make:model Models\Produtos -m
+
+php artisan artisan migrate
+
+php artisan make:controller api\DogController --resource
+
+Link video aula "https://www.youtube.com/watch?v=daq5S5-55Lw"
