@@ -30,7 +30,7 @@ class ProdutoRepository
             JobProdutoAPI::dispatch($id, $produto, $seq);
         }
 
-        $retorno = exec('c:\WINDOWS\system32\cmd.exe /c START C:\Users\aless\Documents\Desenvolvimento\api-erp\start_job.bat',$return_var);
+        $retorno = exec('c:\WINDOWS\system32\cmd.exe /c START C:\Users\aless\Documents\Desenvolvimento\api-erp\start_job.bat &');
         
         return $retorno;
 

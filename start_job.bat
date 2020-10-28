@@ -1,4 +1,5 @@
-cd C:\xampp\htdocs\api_erp
-start job.bat
-@echo SERVIDOR FOI INICIADO ATRAVES DO SITE
+cd ..
+
+php artisan queue:work --stop-when-empty
+
 exit
