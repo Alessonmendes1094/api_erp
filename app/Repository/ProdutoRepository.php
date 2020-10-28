@@ -29,8 +29,6 @@ class ProdutoRepository
             $seq = $seq + 1;
             JobProdutoAPI::dispatch($id, $produto, $seq);
         }
-
-        exec('c:\WINDOWS\system32\cmd.exe /c START C:\xampp\htdocs\api_erp\start_job.bat &');
         
         return ;
 

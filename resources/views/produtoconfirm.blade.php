@@ -12,7 +12,6 @@
             <span class="card-title">Conexão Efetuada</span>
             <hr>
             <h5>Os Produtos Estao Sendo Importados em Segundo Plano... </h5>
-            <p>Status de Importação : {{ $retorno }} </p>
             <p>Verifique em alguns minutos se todos os produtos foram importados.</p>
         </div>
     </div>

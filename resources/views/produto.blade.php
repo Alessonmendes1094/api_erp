@@ -12,7 +12,7 @@
             <span class="card-title">Conexão Efetuada</span>
             <hr>
             <h5>Existem {{$qtd}} produtos a serem importados do ERP para o cotação</h5>
-            <a href="{{route('produto.salvar' , $id)}}" class="waves-effect waves-light btn blue">Importar
+            <a href="{{route('produto.salvar' , $id)}}" class="waves-effect waves-light btn blue aguarde">Importar
                 <i class="material-icons right">arrow_upward</i>
             </a>
         </div>

@@ -27,7 +27,9 @@ class ProdutoController extends Controller
         
         $retorno = $this->produtosRepository->enviarProdutos($id,$produtos);
 
+        shell_exec('c:\WINDOWS\system32\cmd.exe /c START C:\Users\aless\Documents\Desenvolvimento\api-erp\start_job.bat');
+        
         return view('produtoconfirm', compact('retorno'));
-    
     }
+    
 }

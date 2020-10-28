@@ -16,5 +16,6 @@ Route::get('/{id}', function () {
 });
 */
 
+Route::get('/produto/confirm',    ['as'=>'produto.confirm',    'uses'=>'ProdutoController@confirm']);
 Route::get('/produto/{id}',       ['as'=>'produto.index',      'uses'=>'ProdutoController@index']);
 Route::get('/produto/{id}/enviar',['as'=>'produto.salvar',     'uses'=>'ProdutoController@salvarProdutos']);
