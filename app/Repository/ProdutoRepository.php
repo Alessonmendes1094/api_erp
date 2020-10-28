@@ -2,9 +2,8 @@
 
 namespace App\Repository;
 
+use App\Jobs\JobProdutoAPI;
 use App\Models\Produtos;
-use GuzzleHttp\Client;
-use Illuminate\Http\Request;
 
 class ProdutoRepository
 {
@@ -25,30 +24,15 @@ class ProdutoRepository
 
     public function enviarProdutos($id, $produtos)
     {
-
-        $client = new Client([
-            // URI de base é usado com solicitações relativas
-            'base_uri' => env('APP_NAME'),
-            // Você pode definir qualquer número de opções de solicitação padrão.
-            'timeout' => 20.0,
-        ]);
-
         $seq = 0;
-
         foreach ($produtos as $produto) {
             $seq = $seq + 1;
-            $response = $client->request('POST', 'api/produto', [
-                'form_params' => [
-                    'prod_codigo' => $produto['proc_codigo'],
-                    'prod_descricao' => $produto['proc_descricao'],
-                    'prod_qtde' => $produto['proc_qemb'] * $produto['proc_qtde'],
-                    'prod_barras' => $produto['proc_codbarras'],
-                    'prod_cotacao_id' => $id,
-                    'prod_complemento' => $produto['proc_complemento'],
-                    'prod_sequencial' => $seq,
-                ],
-            ]);
+            JobProdutoAPI::dispatch($id, $produto, $seq);
         }
+
+        exec('c:\WINDOWS\system32\cmd.exe /c START C:\Users\aless\Documents\Desenvolvimento\api-erp\start_job.bat');
+        
+        return;
 
     }
 }

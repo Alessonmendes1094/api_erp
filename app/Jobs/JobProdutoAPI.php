@@ -7,18 +7,22 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use GuzzleHttp\Client;
+
 
 class JobProdutoAPI implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private $produtos;
     private $id;
+    private $produto;
+    private $seq;
     
-    public function __construct($produtos,$id)
+    public function __construct($id,$produto,$seq)
     {
-        $this->produtos = $produtos;   
-        $this->id = $id;   
+        $this->id = $id;  
+        $this->produto = $produto; 
+        $this->seq = $seq; 
     }
 
     
@@ -31,21 +35,16 @@ class JobProdutoAPI implements ShouldQueue
             'timeout' => 20.0,
         ]);
 
-        $seq = 0;
-
-        foreach ($produtos as $produto) {
-            $seq = $seq + 1;
-            $response = $client->request('POST', 'api/produto', [
-                'form_params' => [
-                    'prod_codigo' => $produto['proc_codigo'],
-                    'prod_descricao' => $produto['proc_descricao'],
-                    'prod_qtde' => $produto['proc_qemb'] * $produto['proc_qtde'],
-                    'prod_barras' => $produto['proc_codbarras'],
-                    'prod_cotacao_id' => $id,
-                    'prod_complemento' => $produto['proc_complemento'],
-                    'prod_sequencial' => $seq,
-                ],
-            ]);
-        }
+        $response = $client->request('POST', 'api/produto', [
+            'form_params' => [
+                'prod_codigo' => $this->produto['proc_codigo'],
+                'prod_descricao' => $this->produto['proc_descricao'],
+                'prod_qtde' => $this->produto['proc_qemb'] * $this->produto['proc_qtde'],
+                'prod_barras' => $this->produto['proc_codbarras'],
+                'prod_cotacao_id' => $this->id,
+                'prod_complemento' => $this->produto['proc_complemento'],
+                'prod_sequencial' => $this->seq,
+            ],
+        ]);
     }
 }

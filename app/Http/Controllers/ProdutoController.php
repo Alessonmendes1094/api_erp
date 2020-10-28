@@ -22,10 +22,12 @@ class ProdutoController extends Controller
     }
 
     public function salvarProdutos($id){
+        
         $produtos = $this->produtosRepository->produtosErp();
-
+        
         $this->produtosRepository->enviarProdutos($id,$produtos);
 
-        redirect('http://cotacaocompass.com.br/' . env('APP_NAME') . '/public/cotacao/produto/'.$id);
+        return view('produtoconfirm');
+    
     }
 }
