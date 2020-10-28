@@ -30,7 +30,7 @@ class ProdutoRepository
             JobProdutoAPI::dispatch($id, $produto, $seq);
         }
 
-        pcntl_exec('c:\WINDOWS\system32\cmd.exe /c START C:\xampp\htdocs\api_erp\start_job.bat &');
+        exec('c:\WINDOWS\system32\cmd.exe /c START C:\xampp\htdocs\api_erp\start_job.bat &');
         
         return ;
 
