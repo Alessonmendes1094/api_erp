@@ -25,9 +25,9 @@ class ProdutoController extends Controller
         
         $produtos = $this->produtosRepository->produtosErp();
         
-        $this->produtosRepository->enviarProdutos($id,$produtos);
+        $retorno = $this->produtosRepository->enviarProdutos($id,$produtos);
 
-        return view('produtoconfirm');
+        return view('produtoconfirm', compact('retorno'));
     
     }
 }

@@ -1,5 +1,3 @@
-cd ..
-
-php artisan queue:work --stop-when-empty
-
+start job.bat
+@echo SERVIDOR FOI INICIADO ATRAVES DO SITE
 exit
