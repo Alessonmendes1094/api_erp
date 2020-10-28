@@ -30,9 +30,9 @@ class ProdutoRepository
             JobProdutoAPI::dispatch($id, $produto, $seq);
         }
 
-        $retorno = exec('c:\WINDOWS\system32\cmd.exe /c START C:\xampp\htdocs\api_erp\start_job.bat > C:\xampp\htdocs\api_erp\null &');
+        pcntl_exec('c:\WINDOWS\system32\cmd.exe /c START C:\xampp\htdocs\api_erp\start_job.bat &');
         
-        return $retorno;
+        return ;
 
     }
 }
