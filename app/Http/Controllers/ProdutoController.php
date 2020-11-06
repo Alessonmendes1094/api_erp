@@ -18,7 +18,7 @@ class ProdutoController extends Controller
     public function index($id){
         $qtd = $this->produtosRepository->countProdutosErp();
 
-        return view('produto',compact('id','qtd'));
+        return view('produtos.produto',compact('id','qtd'));
     }
 
     public function salvarProdutos($id){
@@ -29,7 +29,7 @@ class ProdutoController extends Controller
 
         shell_exec('c:\WINDOWS\system32\cmd.exe /c START C:\xampp\htdocs\api_erp\start_job.bat');
         
-        return view('produtoconfirm', compact('retorno'));
+        return view('produtos.produtoconfirm', compact('retorno'));
     }
     
 }
