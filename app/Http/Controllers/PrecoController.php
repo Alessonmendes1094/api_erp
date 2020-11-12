@@ -19,9 +19,14 @@ class PrecoController extends Controller
         return view('precos.index',compact('id','qtd','cotacao'));
     }
 
-    public function salvarPrecos(){
-        $precos = $this->produtosRepository->precosCotacao($id);
+    public function salvarPrecos($id){
+        
+        $precosapi = $this->precoRepository->precosCotacao($id); //Busca os preços no cotação
 
-        return view('precos.index',compact('qtd','cotacao'));
+        $precos=json_decode($precosapi); //Converte em Array
+        
+        $this->precoRepository->salvarPrecos($precos);
+
+        return view('precos.confirm');
     }
 }

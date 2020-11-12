@@ -11,8 +11,7 @@
             </div>
             <span class="card-title">Conexão Efetuada</span>
             <hr>
-            <h5>Os Produtos Estao Sendo Importados em Segundo Plano... </h5>
-            <p>Verifique em alguns minutos se todos os produtos foram importados.</p>
+            <h5>Os Preços Foram exportados com sucesso... </h5>
         </div>
     </div>
 </div>

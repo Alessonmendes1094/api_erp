@@ -12,7 +12,7 @@
             <span class="card-title">Conexão Efetuada</span>
             <hr>
             <h5>Existem {{$qtd}} preços a serem exportados da cotação {{ $cotacao }} para o ERP, confirma exportação?</h5>
-            <a href="{{route('preco.salvar' , $id)}}" class="waves-effect waves-light btn blue aguarde">Exportar
+            <a href="{{route('preco.salvar', $id)}}" class="waves-effect waves-light btn blue aguarde">Exportar
                 <i class="material-icons right">arrow_downward</i>
             </a>
         </div>
