@@ -16,13 +16,11 @@ class JobProdutoAPI implements ShouldQueue
 
     private $id;
     private $produto;
-    private $seq;
     
-    public function __construct($id,$produto,$seq)
+    public function __construct($id,$produto)
     {
         $this->id = $id;  
         $this->produto = $produto; 
-        $this->seq = $seq; 
     }
 
     
@@ -43,7 +41,6 @@ class JobProdutoAPI implements ShouldQueue
                 'prod_barras' => $this->produto['proc_codbarras'],
                 'prod_cotacao_id' => $this->id,
                 'prod_complemento' => $this->produto['proc_complemento'],
-                'prod_sequencial' => $this->seq,
             ],
         ]);
     }
