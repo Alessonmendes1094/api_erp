@@ -37,11 +37,15 @@ class PrecoRepository
             $movcotacao->mcot_subtrib = 0;
             $movcotacao->mcot_perc = 0;
             $movcotacao->mcot_frete = 0;
-            $movcotacao->mcot_fpgt_codigo = null;
+            $movcotacao->mcot_fpgt_codigo = '';
             $movcotacao->mcot_data = date('Y-m-d');
             $movcotacao->mcot_unid_codigo = '001';
             $movcotacao->mcot_espe_codigo = '';
-            $movcotacao->mcot_obs = $preco->observacao;
+            if($preco->observacao <> null){
+                $movcotacao->mcot_obs = $preco->observacao;
+            } else {
+                $movcotacao->mcot_obs = '';
+            }
             $movcotacao->mcot_fcpst = 0;
             $movcotacao->save();
 
