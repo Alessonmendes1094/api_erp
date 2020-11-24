@@ -9,7 +9,11 @@ class Preco extends Model
     protected $table = 'movcotacao';
 
     public $timestamps = false;
-    
+
+    protected $primaryKey = null;
+
+    public $incrementing = false;
+
     protected $fillable = [
         'mcot_forn_codigo', 
         'mcot_prod_codigo',
